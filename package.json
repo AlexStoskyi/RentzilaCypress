@@ -2,7 +2,13 @@
   "name": "rentzilacypress",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cy:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:headless": "cypress run --headless",
+    "cypress:record": "cypress run --record --key <your_cypress_dashboard_key>",
+    "cypress:spec": "cypress run --spec 'cypress/e2e/**/*.cy.ts'"
+  },
   "keywords": [
     "automation",
     "testing",

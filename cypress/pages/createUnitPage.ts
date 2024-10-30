@@ -13,9 +13,47 @@ class CreateUnitePage extends BasePage {
     private secondListOfCategory = '[class*=SecondCategory_namesBlock]';
     private thirdListOfCategory = '[class*= ThirdCategory_wrapper]';
     private announcementTitleField = '[class*=CustomInput_wrapper] input';
+    private vehicleManufacturerField = '[class*=CustomSelectWithSearch_searchInput]';
+    private vehicleManufacturerListItem = '[class*=CustomSelectWithSearch_flexForServices]';
+    private mapField = '[class*=AddressSelectionBlock_mapLabel]';
+    private popUpMapConfirmButton = '[class*=ItemButtons_darkBlueBtn]';
+    private nextButton = '[class*=ButtonsFlow_fillBtn]';
+
+    clickOnNextButton(){
+        this.clickElement(this.getNextButton())
+    }
+
+    getNextButton(){
+        return this.getElement(this.nextButton)
+    }
+
+    clickOnConfirmAddressButton(){
+        this.clickElement(this.getPopUpConfirmButton())
+    }
+
+    getPopUpConfirmButton(){
+        return this.getElement(this.popUpMapConfirmButton)
+    }
+
+    clickOnMapField(){
+        this.clickElement(this.getMapField());
+        cy.wait(300)
+    }
+
+    getMapField(){
+        return this.getElement(this.mapField)
+    }
+
+    getVehicleManufacturerListItem(i: number=0){
+        return this.getElement(this.vehicleManufacturerListItem, i)
+    }
+
+    getVehicleManufacturerField(){
+        return this.getElement(this.vehicleManufacturerField)
+    }
 
     getAnnouncementTitle(){
-        return this.getElement(this.announcementTitleField, 1);
+        return this.getElement(this.announcementTitleField, 0);
     }
 
     getCategoryField(){
@@ -66,6 +104,14 @@ class CreateUnitePage extends BasePage {
         this.clickOnElementOfFirstList(firstListIndex);
         this.clickOnElementSecondList(secondListIndex);
         this.clickOnElementThirdList(thirdListIndex);
+    }
+
+    fillVehicleManufacturer(text: string){
+        this.typeText(this.getVehicleManufacturerField(), text)
+    }
+
+    ChooseVehicleManufacturerItem(i:number){
+        this.clickElement(this.getVehicleManufacturerListItem(i))
     }
 }
 

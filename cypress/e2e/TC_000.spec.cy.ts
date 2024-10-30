@@ -15,5 +15,10 @@ context('Actions', () => {
     createUnitPage.clickOnCategoryField();
     createUnitPage.chooseCategory({firstListIndex: 1, secondListIndex: 1, thirdListIndex: 1})
     createUnitPage.typeAnnouncementTitle(faker.internet.userName());
+    createUnitPage.fillVehicleManufacturer('ABC');
+    createUnitPage.ChooseVehicleManufacturerItem(0);
+    createUnitPage.clickOnMapField();
+    createUnitPage.clickOnConfirmAddressButton();
+    createUnitPage.clickOnNextButton();
 })
 })
