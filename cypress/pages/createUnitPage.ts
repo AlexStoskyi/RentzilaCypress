@@ -16,6 +16,7 @@ class CreateUnitePage extends BasePage {
     private vehicleManufacturerField = '[class*=CustomSelectWithSearch_searchInput]';
     private vehicleManufacturerListItem = '[class*=CustomSelectWithSearch_flexForServices]';
     private mapField = '[class*=AddressSelectionBlock_mapLabel]';
+    private popUpAddressText = '[class*=MapPopup_address]';
     private popUpMapConfirmButton = '[class*=ItemButtons_darkBlueBtn]';
     private nextButton = '[class*=ButtonsFlow_fillBtn]';
 
@@ -35,9 +36,13 @@ class CreateUnitePage extends BasePage {
         return this.getElement(this.popUpMapConfirmButton)
     }
 
+    getPopUpText(){
+        return this.getElement(this.popUpAddressText)
+    }
+
     clickOnMapField(){
         this.clickElement(this.getMapField());
-        cy.wait(300)
+        this.getPopUpText().should('have.text', 'Київ, вулиця Володимирська 21/20 Україна, Київська область')
     }
 
     getMapField(){
