@@ -9,8 +9,11 @@ Automation testing project for [Rentzila](https://dev.rentzila.com.ua/) using Cy
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Running Tests](#running-tests)
+- [Project Structure](#project-structure)
 - [Scripts](#scripts)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Project Description
 
@@ -55,7 +58,7 @@ USER_LOGIN=<your_login>
 USER_PASSWORD=<your_password>
 ```
 
-## Scripts 
+## Running Tests
 - To run tests in the Cypress GUI:
 ```bash
 npm run cypress:open
@@ -64,3 +67,54 @@ npm run cypress:open
 ```bash
 npm run cypress:run
 ```
+
+## Project Structure
+```bash
+/your-project-root
+├── cypress
+│   ├── e2e                     # Directory for e2e tests
+│   ├── fixtures                # Test data
+│   ├── plugins                 # Plugin configurations
+│   └── support                 # Functions, commands, and helpers
+├── .env                        # Environment variables
+├── cypress.config.ts           # Cypress configuration
+├── package.json                # Dependencies and scripts
+└── README.md                   # Project description
+```
+
+## Scripts
+Add the following scripts to your package.json file for running tests:
+```json
+"scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:headless": "cypress run --headless",
+    "cypress:record": "cypress run --record --key <your_cypress_dashboard_key>",
+    "cypress:spec": "cypress run --spec 'cypress/e2e/**/*.cy.ts'"
+}
+```
+- cypress:open: Opens the Cypress Test Runner GUI.
+- cypress:run: Runs all tests in the CLI.
+- cypress:headless: Runs all tests in headless mode.
+- cypress:record: Runs and records tests in Cypress Dashboard (requires a Dashboard key).
+- cypress:spec: Runs specific test files using a glob pattern.
+
+## Contributing
+- Fork this repository.
+- Create a new branch (git checkout -b feature-branch).
+- Make your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature-branch).
+- Create a Pull Request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+```javascript
+This `README.md` now includes a `Scripts` section with detailed information about the different Cypress test run configurations available.
+```
+
+
+
+
+
+

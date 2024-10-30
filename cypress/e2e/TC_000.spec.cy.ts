@@ -1,7 +1,6 @@
 import { homePage } from '../pages/mainPage';
 import { createUnitPage } from '../pages/createUnitPage';
 import { faker } from '@faker-js/faker';
-import cypressConfig from '../../cypress.config';
 
 context('Actions', () => {
   beforeEach(() => {
@@ -15,7 +14,6 @@ context('Actions', () => {
 
     createUnitPage.clickOnCategoryField();
     createUnitPage.chooseCategory({firstListIndex: 1, secondListIndex: 1, thirdListIndex: 1})
-    const text = faker.internet.userName()
-    createUnitPage.typeAnnouncementTitle(text);
+    createUnitPage.typeAnnouncementTitle(faker.internet.userName());
 })
 })
