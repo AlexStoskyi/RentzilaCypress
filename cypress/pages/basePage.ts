@@ -23,6 +23,6 @@ export class BasePage {
     typeText(selector: string | Cypress.Chainable, text: string) {
       if (typeof selector === 'string') this.getElement(selector).type(text);
       else selector.type(text);
-  }
+    }
   }
   
