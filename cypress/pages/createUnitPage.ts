@@ -1,6 +1,12 @@
 import { performanceTimestampProvider } from './../../node_modules/rxjs/src/internal/scheduler/performanceTimestampProvider';
 import { BasePage } from './basePage';
 
+export type CategoryOptions = {
+    firstListIndex?: number;
+    secondListIndex?: number;
+    thirdListIndex?: number;
+};
+
 class CreateUnitePage extends BasePage {
     private chooseCategoryField = '[class*=CategorySelect_button]';
     private firsListOfCategory = '[class*=FirstCategoryList_content]';
@@ -48,10 +54,18 @@ class CreateUnitePage extends BasePage {
         this.clickElement(this.getThirdList().eq(i))
     }
 
-    chooseCategoryFun(i: number = 0, j: number = 0, k: number = 0){
-        this.clickOnElementOfFirstList(i);
-        this.clickOnElementSecondList(j);
-        this.clickOnElementThirdList(k);
+    // chooseCategoryFun(i: number = 0, j: number = 0, k: number = 0){
+    //     this.clickOnElementOfFirstList(i);
+    //     this.clickOnElementSecondList(j);
+    //     this.clickOnElementThirdList(k);
+    // }
+
+    
+    chooseCategory(options: CategoryOptions = {}) {
+        const { firstListIndex = 0, secondListIndex = 0, thirdListIndex = 0 } = options;
+        this.clickOnElementOfFirstList(firstListIndex);
+        this.clickOnElementSecondList(secondListIndex);
+        this.clickOnElementThirdList(thirdListIndex);
     }
 }
 

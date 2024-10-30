@@ -6,7 +6,7 @@ export class BasePage {
   
     getElement(selector: string, index?: number) {
       const elements = cy.get(selector); 
-      if (typeof index !== 'undefined') {
+      if (index !== undefined) {
         return elements.eq(index); 
       }
       return elements; 
@@ -20,8 +20,9 @@ export class BasePage {
       }
     }
   
-    typeText(selector: string, text: string) {
-      this.getElement(selector).type(text);
-    }
+    typeText(selector: string | Cypress.Chainable, text: string) {
+      if (typeof selector === 'string') this.getElement(selector).type(text);
+      else selector.type(text);
+  }
   }
   
